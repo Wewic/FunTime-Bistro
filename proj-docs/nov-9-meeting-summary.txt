@@ -1,0 +1,54 @@
+Present: Eric, Patrick, Paul, Harry (partially)
+
+Please go through each point, and tag -Name {comment, questions if necessary}
+and commit
+
+Topics:
+Project clarification and updates
+Implementation clarifications
+TODOs
+
+-- Project clarification
+- Admin users should have same functionality as Customer, create order, add menuitems to order, purchase, update own account information. Admin users should also have Chef functionality, so create/edit menuItem, Ingredients (exclude cooks functionality).
+* OK -paul
+
+- This is the workflow application will use database schema:
+- User (customer, admin) creates a new order
+- User (customer, admin) adds menuitems to order
+- User (customer, admin) specifies to pay for order with options (split or entire order)
+- For entire order, there is one invoice record created
+- For split, there are multiple invoice records created
+* OK -paul
+
+
+-- Implementation clarifications
+- for queries that are similar (e.x. menuitem where menuitem.price < 25, menuitem menuitem.price < 25 AND menuitem.category = 'dessert'), just apply queries to table (menuitem)
+* OK -paul
+
+- storing value for menuitem name, and ingredient name is difficult and less robust in frontend. Suggest adding fields Id (with unique constraint) to menuitem and ingredient.
+* OK -paul
+
+
+-- TODOs
+- for deadline, start documenting what queries we have and which requirements we have fulfilled
+* OK -paul
+
+- update ER diagram to reflect our current database schema. This currently involves deleting customer and admin entities and to copy the customer relationships to user entity.
+* OK -paul
+
+- update createTable.sql to use correct ON UPDATE and ON DELETE constraints. We agreed on ON DELETE restrict (default of mysql, so dont need to specify in DDL) for Users, MenuItem, Ingredient. We also agreed on ON UPDATE cascade for MenuItem, Ingredient (dont care about other entities since we dont update their primary key value).
+* OK -paul
+
+- update createTable.sql to have unique constraint on employee_id, ssNum for Chef. So we cannot have 2 chefs with same employee_id. This also makes it so we cannot have 2 chefs with same ssNum.
+* OK -paul
+
+- update readme files (main README.md) so that Nadine can follow instructions easier to run project. Mainly need clearer instructions on how to install composer on MacOSX.
+* OK -paul
+
+- update createtable.sql so that it deletes funtime database, then creates funtime database. And then proceeds to insert all tables, and then all tuples. (we may want to keep as 2 seperate sql files, createtable.sql and insertdata.sql)
+* OK -paul
+
+
+
+-----
+Forgot to talk about NULL vs NOTNULL - NOTNULL better for application since we dont need to check for null value

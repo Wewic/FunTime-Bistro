@@ -1,0 +1,41 @@
+{
+  "name": "ProjectFunTime",
+  "description": "CPSC 304 project - PHP webpage management system for database",
+  "keywords": ["php", "ubc", "project", "database"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "PQTran",
+      "email": "PQTran23@gmail.com",
+      "role": "dev"
+    },
+    {
+      "name": "Harry Zhi",
+      "email": "hz@fakeemail.ca",
+      "role": "dev"
+    },
+    {
+      "name": "Eric Wu",
+      "email": "ew@fakeemail.ca",
+      "role": "dev"
+    },
+    {
+      "name": "Patrick Lin",
+      "email": "pl@fakeemail.ca",
+      "role": "dev"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "filp/whoops": ">=1.1.2",
+    "patricklouys/http": "~1.4",
+    "nikic/fast-route": ">1.0",
+    "rdlowrey/auryn": ">1.0",
+    "twig/twig": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ProjectFunTime\\": "src/"
+    }
+  }
+}
